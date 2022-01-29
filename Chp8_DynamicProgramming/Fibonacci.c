@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main(){
-    int* arr = (int*)calloc(100, sizeof(int));
+    float* arr = (float*)calloc(101, sizeof(float));
 
     arr[0] = 1;
     arr[1] = 1;
@@ -12,4 +12,5 @@ int main(){
         arr[i] = arr[i - 1] + arr[i - 2];
 
     for(int i = 0; i < n + 1; i++)
-        printf("%d\n", arr[i]);
+        printf("%.f\n", arr[i]);
+}
