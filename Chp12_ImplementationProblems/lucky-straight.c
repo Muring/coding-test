@@ -19,7 +19,29 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(){
+    int n, len;
+    scanf("%d%n", &n, &len);
+
+    int mid = len / 2;
+
+    char* arr = (char*)calloc(len, sizeof(int));
+    sprintf(arr, "%d", n);
+
+    int left = 0, right = 0, place = 1;
+    for(int i = len - 1; i >= 0; i --){
+        if(i <= mid - 1)
+            left += (arr[i] - 48) * place;
+        else
+            right += (arr[i] - 48) * place;
+        if(mid - 1 == i)
+            place = 1;
+    }
     
+    if(left == right)
+        printf("LUCKY");
+    else
+        printf("READY");
 }

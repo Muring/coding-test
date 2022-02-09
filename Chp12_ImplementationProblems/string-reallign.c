@@ -14,6 +14,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
+void SelectionSort(char* arr, int size){
+    int min_index;
+    char temp;
     
+    for(int i = 0; i < size; i++){
+        min_index = i;
+        for(int j = i + 1; j < size; j++)
+            if(arr[min_index] > arr[j])
+                min_index = j;
+        temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
+    }
+}
+
+int main(){
+    char temp[10000];
+    int len;
+    scanf("%s%n", temp, &len);
+    
+    char* arr = (char*)malloc(sizeof(int) * len);
+    int loc = 0, sum = 0;
+    for(int i = 0; i < len; i++){
+        if(temp[i] <= 90 && temp[i] >= 65){
+            arr[loc] = temp[i];
+            loc++;
+        }
+        else
+            sum += (int)(temp[i] - 48);
+    }
+    SelectionSort(arr, loc);
+
+    for(int i = 0; i < loc; i++)
+        printf("%c", arr[i]);
+    printf("%d", sum);
 }
