@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define INF 1e9;
 
-
+int getSmallestNode(int n){
+    int min_value = INF;
+    int index = 0;
+    for(int i = 1; i <= n; i++){
+        
+    }
+}
 
 int main(){
     int n, m;
